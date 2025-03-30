@@ -551,7 +551,7 @@ class ImageTile:
             }
         }
 
-    RETURN_TYPES = ("IMAGE", "INT", "INT", "INT", "INT")
+    RETURN_TYPES = ("IMAGE", "MASK", "INT", "INT", "INT", "INT")
     RETURN_NAMES = ("IMAGE", "MASK", "tile_width", "tile_height", "overlap_x", "overlap_y",)
     FUNCTION = "execute"
     CATEGORY = "essentials/image manipulation"
