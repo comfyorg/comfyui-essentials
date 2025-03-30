@@ -573,7 +573,7 @@ class ImageTile:
             overlap_h = 0
         if cols == 1:
             overlap_w = 0
-        
+
         tiles = []
         masks = []
         for i in range(rows):
@@ -598,14 +598,15 @@ class ImageTile:
 
                 tiles.append(image[:, y1:y2, x1:x2, :])
 
-                mask = torch.zeros((1, h, w), dtype=torch.uint8)
-                mask[:, y1:y2, x1:x2] = 1
+                mask = torch.zeros((1, h, w), dtype=torch.float32)
+                mask[:, y1:y2, x1:x2] = 1.0
                 masks.append(mask)
 
         tiles = torch.cat(tiles, dim=0)
         masks = torch.cat(masks, dim=0)
 
         return tiles, masks, tile_w + overlap_w, tile_h + overlap_h, overlap_w, overlap_h
+
 
 
 class ImageUntile:
